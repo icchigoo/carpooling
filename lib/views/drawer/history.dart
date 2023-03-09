@@ -1,7 +1,6 @@
 import 'package:carpooling/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 
 class History extends StatelessWidget {
   @override
@@ -77,9 +76,9 @@ class History extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  startEndItem(Icons.trip_origin, "Faisal Colony"),
+                  startEndItem(Icons.trip_origin, "Sunsity colony "),
                   SizedBox(height: 5),
-                  startEndItem(Icons.location_on, "islighton University"),
+                  startEndItem(Icons.location_on, "Islington University"),
                 ],
               ),
               CircleAvatar(

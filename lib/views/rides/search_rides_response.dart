@@ -1,26 +1,55 @@
 import 'package:carpooling/views/rides/requestRide.dart';
+import 'package:carpooling/views/rides/ride_filters.dart';
 import 'package:carpooling/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class SearchRides extends StatelessWidget {
+class SearchRidesResponse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 45,
+        title: Text("Matching Rides"),
+        centerTitle: true,
+        actions: [
+          Container(
+              margin: EdgeInsets.only(right: 15),
+              child: IconButton(
+                  splashRadius: 20,
+                  // color: Colors.yellow,
+                  onPressed: () {
+                    Get.to(() => RideFilter());
+                  },
+                  icon: Icon(Icons.filter_list_alt))
+
+              //  InkWell(
+              //   onTap: () {
+              //     Get.to(() => RideFilter());
+              //   },
+              //   child: Icon(
+              //     Icons.filter_list_alt,
+              //     // size: 30,
+              //     // color: Colors.yellow,
+              //   ),
+              // ),
+              ),
+        ],
+      ),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.arrow_back_sharp),
-                  Text("MATCHING RIDES"),
-                  Icon(Icons.filter_list_alt)
-                ],
-              ),
+              // SizedBox(height: 30),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Icon(Icons.arrow_back_sharp),
+              //     Text("MATCHING RIDES"),
+              //     Icon(Icons.filter_list_alt)
+              //   ],
+              // ),
               Column(
                 children: [
                   RideItem(),
@@ -37,14 +66,10 @@ class SearchRides extends StatelessWidget {
 }
 
 class RideItem extends StatelessWidget {
-  const RideItem({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(width: 0.5, color: Colors.grey),
@@ -60,7 +85,7 @@ class RideItem extends StatelessWidget {
                   CircleAvatar(
                     radius: 30,
                     backgroundImage: NetworkImage(
-                      "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
                     ),
                   ),
                   SizedBox(width: 10),
@@ -77,7 +102,7 @@ class RideItem extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: CustomText(
-                            text: "mug",
+                            text: "Uzair Abbasi",
                             size: 20,
                           ),
                         ),
@@ -91,11 +116,11 @@ class RideItem extends StatelessWidget {
                             child: FittedBox(
                               fit: BoxFit.scaleDown,
                               child: CustomText(
-                                text: "islington ",
+                                text: "Islington Islambad",
                                 // size: 18,
                               ),
                             ),
-                          ) //Company detail or anything
+                          ), //Company detail or anything
                         ],
                       ),
                     ],
@@ -103,37 +128,32 @@ class RideItem extends StatelessWidget {
                 ],
               ),
               Container(
+                // height: 120,
                 margin: EdgeInsets.only(right: 8),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: CircularPercentIndicator(
-                        radius: 45.0,
-                        lineWidth: 4.0,
-                        animation: true,
-                        percent: 0.8,
-                        center: Text(
-                          // percent.toString() + "%",
-                          "80%",
-                          style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                        ),
-                        // backgroundColor: Colors.grey[300],
-                        circularStrokeCap: CircularStrokeCap.round,
-                        progressColor: Colors.green,
+                    CircularPercentIndicator(
+                      radius: 45.0,
+                      lineWidth: 4.0,
+                      animation: true,
+                      percent: 0.8,
+                      center: Text(
+                        // percent.toString() + "%",
+                        "80%",
+                        style: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
                       ),
+                      // backgroundColor: Colors.grey[300],
+                      circularStrokeCap: CircularStrokeCap.round,
+                      progressColor: Colors.green,
                     ),
-                    Text(
-                      "Match",
-                      style: TextStyle(
-                          // fontSize: 15.0,
-                          // fontWeight: FontWeight.w600,
-                          color: Colors.black54),
+                    CustomText(
+                      text: "Match",
+                      size: 14,
                     )
                   ],
                 ),
@@ -141,7 +161,7 @@ class RideItem extends StatelessWidget {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
@@ -183,7 +203,7 @@ class RideItem extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: CustomText(
-                            text: ", Nepal",
+                            text: "Islington, Islamabad",
                             // size: 2,
                           ),
                         ),
@@ -205,7 +225,7 @@ class RideItem extends StatelessWidget {
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: CustomText(
-                        text: "Tesla Mugi",
+                        text: "Through Fazabad",
                         // size: 2,
                       ),
                     ),

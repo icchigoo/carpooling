@@ -72,9 +72,9 @@ class SavedTemplate extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  startEndItem(Icons.trip_origin, "Faisal Colony"),
+                  startEndItem(Icons.trip_origin, "Sunsity colony "),
                   SizedBox(height: 5),
-                  startEndItem(Icons.location_on, "islington University"),
+                  startEndItem(Icons.location_on, "Islington University"),
                 ],
               ),
               CircleAvatar(

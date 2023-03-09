@@ -1,4 +1,5 @@
 import 'package:carpooling/widgets/custom_text.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -126,8 +127,8 @@ class AboutUs extends StatelessWidget {
             //   weight: FontWeight.w500,
             //   size: 35,
             // ),
-            aboutItems("Dr Ajay", "Supervisor"),
-            aboutItems("Dr Ajay", "Co-Supervisor"),
+            aboutItems("Dr Mugi Janjua", "Supervisor"),
+            aboutItems("Dr Mustafa madani", "Co-Supervisor"),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -139,8 +140,8 @@ class AboutUs extends StatelessWidget {
                 ),
               ],
             ),
-            aboutItems("Sujen mugi", "project leader"),
-            aboutItems("SUjen", "HEro mugi"),
+            aboutItems("MugiMugi Bin Sajid", "project leader"),
+            aboutItems("Uzair Asghar", "Chota sa chasky wala"),
             Column(
               children: [
                 CustomText(
@@ -149,7 +150,7 @@ class AboutUs extends StatelessWidget {
                   // weight: FontWeight.bold,
                 ),
                 CustomText(
-                  text: 'AJay',
+                  text: 'Islington Islamabad',
                   weight: FontWeight.bold,
                   size: 20,
                 ),
@@ -171,7 +172,7 @@ class AboutUs extends StatelessWidget {
           CircleAvatar(
             radius: 45,
             backgroundImage: NetworkImage(
-              "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+              "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
             ),
           ),
           SizedBox(width: 10),

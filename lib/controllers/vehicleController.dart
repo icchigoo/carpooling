@@ -1,4 +1,5 @@
 import 'package:carpooling/models/vehicle.dart';
+
 import 'package:get/get.dart';
 
 class VehicleController extends GetxController {

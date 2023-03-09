@@ -15,12 +15,20 @@ class ViewProfile extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(Icons.arrow_back)),
+              ),
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.symmetric(vertical: 15),
+                margin: EdgeInsets.only(bottom: 15),
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(
-                      "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4"),
+                      "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80 "),
                   radius: 50.0,
                 ),
               ),
@@ -28,7 +36,7 @@ class ViewProfile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomText(
-                    text: "Sujen Mugi",
+                    text: "MugiMugi",
                     size: 25,
                     color: Colors.blueGrey,
                     weight: FontWeight.w400,
@@ -47,7 +55,7 @@ class ViewProfile extends StatelessWidget {
                   ),
                   // SizedBox(width: 5),
                   CustomText(
-                    text: ", Nepal",
+                    text: "Islamabad, Pakistan",
                     size: 22,
                     color: Colors.blueGrey,
                     weight: FontWeight.w400,
@@ -188,7 +196,7 @@ class ViewProfile extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundImage: NetworkImage(
-                    "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4"),
+                    "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80 "),
                 radius: 30,
               ),
               SizedBox(width: 8),
@@ -196,7 +204,7 @@ class ViewProfile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomText(
-                    text: "Mug khan",
+                    text: "",
                     size: 18,
                     weight: FontWeight.w400,
                   ),

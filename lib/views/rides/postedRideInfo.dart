@@ -1,7 +1,9 @@
+import 'package:carpooling/views/viewProfile.dart';
 import 'package:carpooling/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class PostedRideInfo extends StatelessWidget {
@@ -18,7 +20,7 @@ class PostedRideInfo extends StatelessWidget {
             child: Icon(
               Icons.delete_forever,
               size: 30,
-              color: Colors.red,
+              color: Colors.white,
             ),
           ),
         ],
@@ -28,13 +30,47 @@ class PostedRideInfo extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Container(
+              //     height: 150,
+              //     width: double.infinity,
+              //     child: Text(
+              //       "Map with origion destination ",
+              //     ),
+              //     color: Colors.lightGreenAccent),
+
               Container(
-                  height: 150,
-                  width: double.infinity,
-                  child: Text(
-                    "Map with origion destination ",
+                height: 250,
+                child: GoogleMap(
+                  initialCameraPosition: CameraPosition(
+                    target: const LatLng(33.578891, 73.039483),
+                    zoom: 17.0,
                   ),
-                  color: Colors.lightGreenAccent),
+                  // compassEnabled: false,
+                  // markers: _markers.toSet(),
+                  // zoomControlsEnabled: false,
+                  myLocationButtonEnabled: true,
+                  myLocationEnabled: true,
+                  trafficEnabled: true,
+                  onTap: (cordinate) {
+                    // _currentCoordinates = cordinate;
+                    // // print(cordinate);
+                    // setState(() {
+                    //   _markers = [];
+                    //   _markers.add(
+                    //     Marker(
+                    //       markerId: MarkerId(cordinate.toString()),
+                    //       position: cordinate,
+                    //       draggable: true,
+                    //       onDragEnd: (dragEndPosition) {
+                    //         // print(dragEndPosition.toString() + " end point");
+                    //       },
+                    //     ),
+                    //   );
+                    // });
+                  },
+                ),
+              ),
+
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
@@ -114,7 +150,7 @@ class PostedRideInfo extends StatelessWidget {
         CustomText(text: title, size: 14),
         CustomText(
           text: value,
-          weight: FontWeight.bold,
+          weight: FontWeight.w500,
           size: 20,
         )
       ],
@@ -143,7 +179,7 @@ class TabsView extends StatelessWidget {
           ),
           Container(
             height:
-                400, //set this height according to the list size in postedRideInfo SCreen
+                200, //set this height according to the list size in postedRideInfo SCreen
             child: TabBarView(children: [
               //confirmed passangers
               ListView(
@@ -195,14 +231,14 @@ class TabsView extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: CustomText(
-                            text: "Mug",
+                            text: "Mugi",
                             size: 20,
                             weight: FontWeight.bold,
                           ),
                         ),
                       ),
 
-                      // CustomText(text: "",size: 22,weight: FontWeight.bold,),
+                      // CustomText(text: "Mugi",size: 22,weight: FontWeight.bold,),
                       SizedBox(height: 5),
                       GFRating(
                         color: GFColors.SUCCESS,
@@ -374,10 +410,15 @@ class TabsView extends StatelessWidget {
                 Positioned(
                   // screenWidth/2 - side margin - image half length
                   left: Get.width / 2 - 20 - 20,
-                  child: CircleAvatar(
-                    radius: 40,
-                    backgroundImage: NetworkImage(
-                      "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(() => ViewProfile());
+                    },
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
+                      ),
                     ),
                   ),
                 ),
@@ -400,7 +441,7 @@ class TabsView extends StatelessWidget {
             CircleAvatar(
               radius: 35,
               backgroundImage: NetworkImage(
-                "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
               ),
             ),
             SizedBox(width: 10),
@@ -410,7 +451,7 @@ class TabsView extends StatelessWidget {
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: CustomText(
-                    text: "mug",
+                    text: "Mugi",
                     size: 22,
                     weight: FontWeight.bold,
                   ),
@@ -466,14 +507,14 @@ class TabsView extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: CustomText(
-                            text: "mug",
+                            text: "Mugi",
                             size: 20,
                             weight: FontWeight.bold,
                           ),
                         ),
                       ),
 
-                      // CustomText(text: "mug ",size: 22,weight: FontWeight.bold,),
+                      // CustomText(text: "Mugi",size: 22,weight: FontWeight.bold,),
                       SizedBox(height: 5),
                       GFRating(
                         color: GFColors.SUCCESS,
@@ -646,10 +687,15 @@ class TabsView extends StatelessWidget {
                 Positioned(
                   // screenWidth/2 - side margin - image half length
                   left: Get.width / 2 - 20 - 20,
-                  child: CircleAvatar(
-                    radius: 40,
-                    backgroundImage: NetworkImage(
-                      "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(() => ViewProfile());
+                    },
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
+                      ),
                     ),
                   ),
                 ),
@@ -673,7 +719,7 @@ class TabsView extends StatelessWidget {
             CircleAvatar(
               radius: 35,
               backgroundImage: NetworkImage(
-                "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
               ),
             ),
             SizedBox(width: 10),
@@ -683,7 +729,7 @@ class TabsView extends StatelessWidget {
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: CustomText(
-                    text: "mug",
+                    text: "Mugi",
                     size: 22,
                     weight: FontWeight.bold,
                   ),

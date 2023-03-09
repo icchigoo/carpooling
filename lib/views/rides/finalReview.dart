@@ -17,14 +17,14 @@ class FinalReview extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                      "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4"),
+                      "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80 "),
                   radius: 60.0,
                 ),
                 SizedBox(height: 10),
                 FittedBox(
                     fit: BoxFit.fitWidth,
                     child: CustomText(
-                      text: "Mug",
+                      text: "Mugi",
                       size: 30,
                     )),
                 SizedBox(height: 20),

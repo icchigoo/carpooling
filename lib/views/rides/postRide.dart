@@ -1,6 +1,5 @@
 import 'package:carpooling/views/map.dart';
 import 'package:carpooling/widgets/custom_text.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
@@ -34,7 +33,7 @@ class PostRide extends StatelessWidget {
             child: Icon(
               Icons.save,
               size: 30,
-              color: Colors.pink,
+              color: Colors.white,
             ),
           ),
         ],
@@ -53,7 +52,7 @@ class PostRide extends StatelessWidget {
                 //     },
                 //     child: Icon(Icons.arrow_back_ios_new_rounded)),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 30),
+                  margin: EdgeInsets.symmetric(vertical: 20),
                   child: CustomText(
                     text: "Set Up Your Ride",
                     weight: FontWeight.bold,
@@ -251,43 +250,45 @@ class PostRide extends StatelessWidget {
                 InkWell(
                   onTap: () async {
                     Get.bottomSheet(
-                        SafeArea(
-                          child: Container(
-                            height: 180,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 40,
-                                  height: 5,
-                                  color: Colors.grey,
-                                  margin: EdgeInsets.symmetric(vertical: 10),
+                      SafeArea(
+                        child: Container(
+                          height: 180,
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 40,
+                                height: 5,
+                                color: Colors.grey,
+                                margin: EdgeInsets.symmetric(vertical: 10),
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 15),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    genderBottomSheetItem(
+                                        Icons.male, Colors.blue, " Male "),
+                                    genderBottomSheetItem(
+                                        Icons.female, Colors.green, "Female"),
+                                    genderBottomSheetItem(
+                                        Icons.block, Colors.red, " None "),
+                                  ],
                                 ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 20, horizontal: 15),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      genderBottomSheetItem(
-                                          Icons.male, Colors.blue, " Male "),
-                                      genderBottomSheetItem(
-                                          Icons.female, Colors.green, "Female"),
-                                      genderBottomSheetItem(
-                                          Icons.block, Colors.red, " None "),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
                         ),
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
+                      ),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30.0),
                           topRight: Radius.circular(30.0),
-                        )));
+                        ),
+                      ),
+                    );
                   },
                   child: AbsorbPointer(
                     child: TextFormField(
@@ -313,43 +314,45 @@ class PostRide extends StatelessWidget {
                 InkWell(
                   onTap: () async {
                     Get.bottomSheet(
-                        SafeArea(
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 40,
-                                height: 5,
-                                color: Colors.grey,
-                                margin: EdgeInsets.symmetric(vertical: 10),
-                              ),
-                              Container(
-                                height: Get.width,
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      bottomSheetVehicleItem(
-                                          "Corolla", "2018", "RIW-2981", 12),
-                                      bottomSheetVehicleItem(
-                                          "Mehran", "2013", "JKI-2981", 18),
-                                      bottomSheetVehicleItem(
-                                          "Honda-70", "2014", "RIW-2981", 32),
-                                      bottomSheetVehicleItem(
-                                          "Mehran", "2013", "JKI-2981", 18),
-                                      bottomSheetVehicleItem(
-                                          "Honda-70", "2014", "RIW-2981", 32)
-                                    ],
-                                  ),
+                      SafeArea(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 5,
+                              color: Colors.grey,
+                              margin: EdgeInsets.symmetric(vertical: 10),
+                            ),
+                            Container(
+                              height: Get.width,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    bottomSheetVehicleItem(
+                                        "Corolla", "2018", "RIW-2981", 12),
+                                    bottomSheetVehicleItem(
+                                        "Mehran", "2013", "JKI-2981", 18),
+                                    bottomSheetVehicleItem(
+                                        "Honda-70", "2014", "RIW-2981", 32),
+                                    bottomSheetVehicleItem(
+                                        "Mehran", "2013", "JKI-2981", 18),
+                                    bottomSheetVehicleItem(
+                                        "Honda-70", "2014", "RIW-2981", 32)
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            )
+                          ],
                         ),
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
+                      ),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30.0),
                           topRight: Radius.circular(30.0),
-                        )));
+                        ),
+                      ),
+                    );
                   },
                   child: AbsorbPointer(
                     child: TextFormField(
@@ -439,7 +442,7 @@ class PostRide extends StatelessWidget {
             CircleAvatar(
               radius: 40,
               backgroundImage: NetworkImage(
-                "https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/325393333_2727741980700062_5696593088195775541_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yqG6XVUaWNMAX8BX90J&_nc_ht=scontent.fktm8-1.fna&oh=00_AfAKlw-v3cXM4EqomHWVxPYQgL_3RXi6kmo_r9nDxJdC2g&oe=640D23C4",
+                "https://images.unsplash.com/photo-1612997951749-ae9c3fffaef3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
               ),
             ),
             SizedBox(width: 10),
